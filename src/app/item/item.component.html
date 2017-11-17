@@ -1,0 +1,22 @@
+<h1>Add Items</h1>
+<md-form-field>
+  <input mdInput type="text" #newitem placeholder="Item name" />
+</md-form-field>
+<button md-button (click)="addItem(newitem.value)">Save</button>
+<h4><i> Items</i></h4>
+<table>
+  <tr>
+    <td>Change</td>
+  </tr>
+  <tr *ngFor="let item of items | async">
+    <td>
+      <!--<input md-checkbox type="checkbox" [value]="item.val().isCompleted" (click)=updateItem(item.key,item.val().isCompleted) [attr.checked]="item.val().isCompleted ? 'checked' : null" >-->
+      <md-checkbox class="example-margin" [(ngModel)]="item.val().isCompleted" (click)="updateItem(item.key,item.val().isCompleted)">
+        {{item.val().text}} {{item.val().isCompleted}} {{item.key}}
+      </md-checkbox>
+    </td>
+   
+  </tr>
+</table>
+
+<!--<md-checkbox class="example-margin" [(ngModel)]="checked">Checked</md-checkbox><md-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</md-checkbox>-->

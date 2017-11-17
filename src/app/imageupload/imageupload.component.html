@@ -1,0 +1,11 @@
+<h1> Image Uplaod</h1>
+<label> <b>Choose File : </b></label>
+<input id="file" (change)="onFileChanged($event)" name="file" type="file">
+<button md-button (click)="uploadImage()">Uplaod Image</button>
+
+<div *ngIf="progress">
+<p >
+<md-progress-bar class="app-progress" color="black" mode="determinate" [value]="progress" aria-label="Determinate progress-bar example"></md-progress-bar>
+</p>
+<p >{{progress}} % Completed</p>
+</div> 
